@@ -19,7 +19,8 @@ qx.Class.define("eyeos.application.wbrowser",{
 			win.setAllowMaximize(true);
 			win.setAllowMinimize(true);
     		        //win.setLayout(new qx.ui.layout.VBox());
-			win.setLayout(new qx.ui.layout.Grid(0,0));
+			layout=new qx.ui.layout.Grid(0,0);
+			win.setLayout(layout);
 			win.set({width:800,height:800});
 			win.setContentPadding(0);
     		        //var firstComposite = new qx.ui.container.Composite(new qx.ui.layout.HBox(2));
@@ -56,6 +57,7 @@ qx.Class.define("eyeos.application.wbrowser",{
 
 			//add the toolbar
 			var toolbar = new qx.ui.toolbar.ToolBar();
+			toolbar.setHeight(20);
 			win.add(toolbar,{row:0,column:0});
 			//add the backward button
 			var backButton = new qx.ui.toolbar.Button("",'index.php?extern=/backward.png');
@@ -114,7 +116,7 @@ qx.Class.define("eyeos.application.wbrowser",{
 
 			goButton.setEnabled(false);
 			
-			
+			layout.setRowFlex(2,1);
 			win.open();
 		}
 	}
